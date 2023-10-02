@@ -1,0 +1,86 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+    <nav>
+      <div class="nav-container">
+        <a href="/">Home</a>
+        <a href="/quem-somos">Quem somos</a>
+        <a href="/missao">Missão</a>
+      </div>
+    </nav>
+
+    <div class="container main-container">
+      <slot />
+    </div>
+
+    <footer>
+      <div  class="container">
+        <span>contatos</span><br>
+        <span>email: conexaoesportiva@gmail.com</span><br>
+        <span>telefone: +55 11983749585</span>
+      </div>
+    </footer>
+	</body>
+</html>
+
+<style>
+  footer {
+    background-color: black;
+    color: white;
+    width: 100%;
+    margin-top: 30px;
+    padding: 40px 0px;
+  }
+
+  .container {
+    display: block;
+    margin: auto;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .main-container {
+    min-height: 100vh;;
+  }
+
+  .nav-container {
+    display: flex;
+    margin: auto;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  nav {
+    margin: 10px;
+    background-color: yellow;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+  }
+
+  nav a {
+    margin-right: 10px;
+    padding: 10px 10px;
+    background-color: blue;
+    color: black;
+    border-radius: 5px;
+  }
+
+  body {
+    margin: 0px;
+  }
+</style>
