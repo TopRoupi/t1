@@ -2,44 +2,98 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Conexão Esportiva">
-	<main>
-    <h1>Projetos sociais voltados ao esporte</h1>
+<style>
+.banner-container {
+  margin-top: 50px;
+  width: 100%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
 
-    <div class="card">
-      <h2>Instituto Reação</h2>
-      <p>Fundado pelo medalhista olímpico Flávio Canto, o Instituto Reação utiliza o judô como ferramenta de transformação social, oferecendo treinamento esportivo e educação para jovens em comunidades de baixa renda.</p>
-      <a href="https://institutoreacao.org.br/">link para o site oficial</a>
-    </div>
+.banner-container .logo {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 0 auto;
+  display: block;
+}
 
-    <div class="card">
-      <h2>Atletas pela Cidadania</h2>
-      <p>Este projeto, liderado por atletas brasileiros renomados, promove ações sociais, educação e esportes para crianças e adolescentes em situação de vulnerabilidade social.</p>
-      <a href="https://atletaspelobrasil.org.br/quem-somos">link para o site oficial</a>
-    </div>
+.banner-container h1 {
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+  1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
 
-    <div class="card">
-      <h2>Instituto Ayrton Senna</h2>
-      <p>Embora seja mais conhecido por suas iniciativas na educação, o instituto também apoia projetos esportivos para crianças e jovens em diversas regiões do Brasil.</p>
-      <a href="https://institutoayrtonsenna.org.br/">link para o site oficial</a>
-    </div>
+.banner-container #header-1-img {
+  position: absolute;
+  bottom: 0px;
+  margin: 0 auto;
+  height: 250%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+</style>
 
-    <div class="card">
-      <h2>Projeto Gol de Letra</h2>
-      <p>Fundado pelos ex-jogadores de futebol Raí e Leonardo, o Gol de Letra combina educação e esporte para melhorar as perspectivas de vida de jovens em comunidades carentes.</p>
-      <a href="https://www.goldeletra.org.br/">link para o site oficial</a>
-    </div>
+<script>
+  var lastPosition = 0
+  window.addEventListener("scroll", function (e) {
+    var img_el = document.getElementById("header-1-img")
+    var style = window.getComputedStyle(img_el)
+    var bottom = style.getPropertyValue('bottom')
+    var lastBottomValue = Number(bottom.slice(0, -2))
 
-    <div class="card">
-      <h2>Instituto Passe de Mágica</h2>
-      <p>Este projeto utiliza o basquete como uma ferramenta de inclusão social e educação para crianças e adolescentes em comunidades de São Paulo.</p>
-      <a href="https://www.passedemagica.org.br/">link para o site oficial</a>
-    </div>
 
-    <div class="card">
-      <h2>Vôlei Futuro</h2>
-      <p>Localizado em Araçatuba, São Paulo, este projeto tem como objetivo promover o voleibol como meio de desenvolvimento pessoal e social para crianças e jovens.</p>
-      <a href="https://www.voleifuturo.com.br/">link para o site oficial</a>
-    </div>
-	</main>
-</Layout>
+    let scroll = this.scrollY
+    img_el.style["bottom"] = `${lastBottomValue + ((lastPosition - scroll) / 1.2)}px`
+    console.log(lastPosition - scroll)
+    lastPosition = scroll
+  });
+</script>
+
+  <Layout title="Conexão Esportiva">
+    <main>
+      <div class="banner-container">
+        <img id="header-1-img" src="/images/banner2.png">
+        <img class="logo" src="/images/logo.png">
+        <h1>Conexão Esportiva</h1>
+      </div>
+      <h1>Projetos sociais voltados ao esporte</h1>
+
+      <div class="card">
+        <h2>Instituto Reação</h2>
+        <p>Fundado pelo medalhista olímpico Flávio Canto, o Instituto Reação utiliza o judô como ferramenta de transformação social, oferecendo treinamento esportivo e educação para jovens em comunidades de baixa renda.</p>
+        <a href="https://institutoreacao.org.br/">link para o site oficial</a>
+      </div>
+
+      <div class="card">
+        <h2>Atletas pela Cidadania</h2>
+        <p>Este projeto, liderado por atletas brasileiros renomados, promove ações sociais, educação e esportes para crianças e adolescentes em situação de vulnerabilidade social.</p>
+        <a href="https://atletaspelobrasil.org.br/quem-somos">link para o site oficial</a>
+      </div>
+
+      <div class="card">
+        <h2>Instituto Ayrton Senna</h2>
+        <p>Embora seja mais conhecido por suas iniciativas na educação, o instituto também apoia projetos esportivos para crianças e jovens em diversas regiões do Brasil.</p>
+        <a href="https://institutoayrtonsenna.org.br/">link para o site oficial</a>
+      </div>
+
+      <div class="card">
+        <h2>Projeto Gol de Letra</h2>
+        <p>Fundado pelos ex-jogadores de futebol Raí e Leonardo, o Gol de Letra combina educação e esporte para melhorar as perspectivas de vida de jovens em comunidades carentes.</p>
+        <a href="https://www.goldeletra.org.br/">link para o site oficial</a>
+      </div>
+
+      <div class="card">
+        <h2>Instituto Passe de Mágica</h2>
+        <p>Este projeto utiliza o basquete como uma ferramenta de inclusão social e educação para crianças e adolescentes em comunidades de São Paulo.</p>
+        <a href="https://www.passedemagica.org.br/">link para o site oficial</a>
+      </div>
+
+      <div class="card">
+        <h2>Vôlei Futuro</h2>
+        <p>Localizado em Araçatuba, São Paulo, este projeto tem como objetivo promover o voleibol como meio de desenvolvimento pessoal e social para crianças e jovens.</p>
+        <a href="https://www.voleifuturo.com.br/">link para o site oficial</a>
+      </div>
+    </main>
+  </Layout>
